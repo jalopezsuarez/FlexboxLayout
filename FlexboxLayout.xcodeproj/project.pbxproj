@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1614991E1CEC8CE500021604 /* FlexboxLayout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16C073791C889D09005EB8DD /* FlexboxLayout.framework */; };
+		1614991F1CEC8CE500021604 /* FlexboxLayout.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 16C073791C889D09005EB8DD /* FlexboxLayout.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1621489F1CAC1D890029CF93 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1621489E1CAC1D890029CF93 /* Extensions.swift */; };
 		165B2BEA1C89E7B8009F81AB /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165B2BE91C89E7B8009F81AB /* Extensions.swift */; };
 		166426351CA977EC00371BB0 /* Geometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166426341CA977EC00371BB0 /* Geometry.swift */; };
@@ -26,6 +28,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		161499201CEC8CE500021604 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 16C073701C889D09005EB8DD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 16C073781C889D09005EB8DD;
+			remoteInfo = FlexboxLayout;
+		};
 		167E861F1CAD3A5B0020A84B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 16C073701C889D09005EB8DD /* Project object */;
@@ -36,6 +45,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		161499221CEC8CE500021604 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				1614991F1CEC8CE500021604 /* FlexboxLayout.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		167E86211CAD3A5B0020A84B /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -50,6 +70,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		161499111CEC8CDD00021604 /* DemoMacOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DemoMacOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1621489E1CAC1D890029CF93 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		165B2BE91C89E7B8009F81AB /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		166426341CA977EC00371BB0 /* Geometry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Geometry.swift; sourceTree = "<group>"; };
@@ -72,6 +93,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		1614990E1CEC8CDD00021604 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1614991E1CEC8CE500021604 /* FlexboxLayout.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		168E963E1C89AF6B00AEEC7F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -119,6 +148,7 @@
 			children = (
 				16C073791C889D09005EB8DD /* FlexboxLayout.framework */,
 				168E96411C89AF6B00AEEC7F /* Demo.app */,
+				161499111CEC8CDD00021604 /* DemoMacOS.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -162,6 +192,25 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		161499101CEC8CDD00021604 /* DemoMacOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1614991B1CEC8CDD00021604 /* Build configuration list for PBXNativeTarget "DemoMacOS" */;
+			buildPhases = (
+				1614990D1CEC8CDD00021604 /* Sources */,
+				1614990E1CEC8CDD00021604 /* Frameworks */,
+				1614990F1CEC8CDD00021604 /* Resources */,
+				161499221CEC8CE500021604 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				161499211CEC8CE500021604 /* PBXTargetDependency */,
+			);
+			name = DemoMacOS;
+			productName = DemoMacOS;
+			productReference = 161499111CEC8CDD00021604 /* DemoMacOS.app */;
+			productType = "com.apple.product-type.application";
+		};
 		168E96401C89AF6B00AEEC7F /* Demo */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 168E96501C89AF6B00AEEC7F /* Build configuration list for PBXNativeTarget "Demo" */;
@@ -205,10 +254,13 @@
 		16C073701C889D09005EB8DD /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0720;
+				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "Alex Usbergo";
 				TargetAttributes = {
+					161499101CEC8CDD00021604 = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
 					168E96401C89AF6B00AEEC7F = {
 						CreatedOnToolsVersion = 7.2.1;
 					};
@@ -232,11 +284,19 @@
 			targets = (
 				16C073781C889D09005EB8DD /* FlexboxLayout */,
 				168E96401C89AF6B00AEEC7F /* Demo */,
+				161499101CEC8CDD00021604 /* DemoMacOS */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		1614990F1CEC8CDD00021604 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		168E963F1C89AF6B00AEEC7F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -257,6 +317,13 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		1614990D1CEC8CDD00021604 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		168E963D1C89AF6B00AEEC7F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -283,6 +350,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		161499211CEC8CE500021604 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 16C073781C889D09005EB8DD /* FlexboxLayout */;
+			targetProxy = 161499201CEC8CE500021604 /* PBXContainerItemProxy */;
+		};
 		167E86201CAD3A5B0020A84B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 16C073781C889D09005EB8DD /* FlexboxLayout */;
@@ -310,6 +382,40 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		1614991C1CEC8CDD00021604 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				INFOPLIST_FILE = DemoMacOS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_BUNDLE_IDENTIFIER = com.s.DemoMacOS;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		1614991D1CEC8CDD00021604 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				INFOPLIST_FILE = DemoMacOS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_BUNDLE_IDENTIFIER = com.s.DemoMacOS;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
 		168E96511C89AF6B00AEEC7F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -438,6 +544,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "-";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -457,6 +564,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "-";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -473,6 +581,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		1614991B1CEC8CDD00021604 /* Build configuration list for PBXNativeTarget "DemoMacOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1614991C1CEC8CDD00021604 /* Debug */,
+				1614991D1CEC8CDD00021604 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		168E96501C89AF6B00AEEC7F /* Build configuration list for PBXNativeTarget "Demo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

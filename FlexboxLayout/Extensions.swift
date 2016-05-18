@@ -29,7 +29,7 @@
 
 import UIKit
     
-extension FlexboxView where Self: UIView {
+extension FlexboxView where Self: ViewType {
     
     /// content-size calculation for the scrollview should be applied after the layout
     /// This is called after the scroll view is rendered.

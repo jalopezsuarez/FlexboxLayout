@@ -26,18 +26,22 @@
 //
 
 #if os(iOS)
-
-import UIKit
+    import UIKit
+    public typealias ViewType = UIView
+#else
+    import AppKit
+    public typealias ViewType = NSView
+#endif
 
 //MARK: Layout
 
 public protocol FlexboxView { }
 
-extension FlexboxView where Self: UIView {
+extension FlexboxView where Self: ViewType {
     
     /// Configure the view and its flexbox style.
     ///- Note: The configuration closure is stored away and called again in the render function
-    public func configure(closure: ((Self) -> Void), children: [UIView]? = nil) -> Self {
+    public func configure(closure: ((Self) -> Void), children: [ViewType]? = nil) -> Self {
         
         //runs the configuration closure and stores it away
         closure(self)
@@ -59,7 +63,7 @@ extension FlexboxView where Self: UIView {
     
     /// Recursively apply the configuration closure to this view tree
     private func configure() {
-        func configure(view: UIView) {
+        func configure(view: ViewType) {
             
             //runs the configure closure
             view.internalStore.configureClosure?()
@@ -77,7 +81,7 @@ extension FlexboxView where Self: UIView {
     /// Re-configure the view and re-compute the flexbox layout
     public func render(bounds: CGSize = CGSize.undefined) {
         
-        func postRender(view: UIView) {
+        func postRender(view: ViewType) {
             view.postRender()
             for subview in view.subviews { postRender(subview) }
         }
@@ -92,7 +96,7 @@ extension FlexboxView where Self: UIView {
     }
 }
 
-extension UIView: FlexboxView {
+extension ViewType: FlexboxView {
     
     /// The style for this flexbox node
     public var style: Style { return self.flexNode.style }
@@ -117,18 +121,32 @@ extension UIView: FlexboxView {
                 
                 newNode.measure = { (node, width, height) -> Dimension in
                     
-                    if self.hidden ||  self.alpha < CGFloat(FLT_EPSILON) {
+                    var opacityIsZero = false
+                    #if os(iOS)
+                        opacityIsZero = self.alpha < CGFloat(FLT_EPSILON)
+                    #endif
+                    
+                    if self.hidden || opacityIsZero {
                         return (0,0) //no size for an hidden element
                     }
+                    
                     
                     self.frame = CGRect.zero
                     var size = CGSize.zero
                     
-                    size = self.sizeThatFits(CGSize(width: CGFloat(width), height: CGFloat(height)))
-                    if size.isZero {
-                        size = self.intrinsicContentSize()
-                    }
-                    
+                    #if os(iOS)
+                        size = self.sizeThatFits(CGSize(width: CGFloat(width), height: CGFloat(height)))
+                        if size.isZero {
+                            size = self.intrinsicContentSize()
+                        }
+                    #else
+                        if let control = self as? NSControl {
+                            size = CGSize(width: -1, height: -1)
+                            control.sizeToFit()
+                            size = control.bounds.size
+                        }
+                    #endif
+  
                     var w: Float = width
                     var h: Float = height
                     
@@ -180,7 +198,7 @@ extension UIView: FlexboxView {
     /// Recursively computes the layout of this view
     private func layout(bounds: CGSize = CGSize.undefined) {
         
-        func prepare(view: UIView) {
+        func prepare(view: ViewType) {
             for subview in view.subviews.filter({ return $0.hasFlexNode }) {
                 prepare(subview)
             }
@@ -222,7 +240,7 @@ class InternalViewStore {
     var notAnimatable: Bool = false
 }
 
-extension UIView {
+extension ViewType {
     
     /// Internal store for this view
     var internalStore: InternalViewStore {
@@ -253,4 +271,3 @@ func debugRenderTime(label: String, startTime: CFAbsoluteTime, threshold: CFAbso
 private var __internalStoreHandle: UInt8 = 0
 private var __flexNodeHandle: UInt8 = 0
 
-#endif
