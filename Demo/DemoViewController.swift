@@ -9,7 +9,7 @@
 import UIKit
 import FlexboxLayout
 
-class ViewControllerWithoutComponent: UIViewController {
+class DemoViewController: UIViewController {
     
     var treeView: UIView? = nil
     var toggle = false

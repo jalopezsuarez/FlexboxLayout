@@ -3,7 +3,26 @@
 //  FlexboxLayout
 //
 //  Created by Alex Usbergo on 03/03/16.
-//  Copyright © 2016 Alex Usbergo. All rights reserved.
+//
+//  Copyright (c) 2016 Alex Usbergo.
+//
+//  Permission is hereby granted, free of charge, to any person obtaining a copy
+//  of this software and associated documentation files (the "Software"), to deal
+//  in the Software without restriction, including without limitation the rights
+//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//  copies of the Software, and to permit persons to whom the Software is
+//  furnished to do so, subject to the following conditions:
+//
+//  The above copyright notice and this permission notice shall be included in
+//  all copies or substantial portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+//  THE SOFTWARE.
 //
 
 import Foundation
@@ -119,7 +138,7 @@ extension Directive.Direction: CEnumTransformable {
 extension Directive.FlexDirection: CEnumTransformable {
     
     typealias CEnumType = css_flex_direction_t
-
+    
     static func defaultValue() -> Directive.FlexDirection {
         return .Column
     }
@@ -147,7 +166,7 @@ extension Directive.FlexDirection: CEnumTransformable {
 extension Directive.Justify: CEnumTransformable {
     
     typealias CEnumType = css_justify_t
-
+    
     static func defaultValue() -> Directive.Justify {
         return .FlexStart
     }
@@ -211,7 +230,7 @@ extension Directive.PositionType: CEnumTransformable {
     static func defaultValue() -> Directive.PositionType {
         return .Relative
     }
-
+    
     func toCEnum() -> css_position_type_t {
         switch self {
         case .Relative: return CSS_POSITION_RELATIVE
@@ -231,11 +250,11 @@ extension Directive.PositionType: CEnumTransformable {
 extension Directive.WrapType: CEnumTransformable {
     
     typealias CEnumType = css_wrap_type_t
-
+    
     static func defaultValue() -> Directive.WrapType {
         return .NoWrap
     }
-
+    
     func toCEnum() -> css_wrap_type_t {
         switch self {
         case .NoWrap: return CSS_NOWRAP
@@ -255,7 +274,7 @@ extension Directive.WrapType: CEnumTransformable {
 extension Directive.PositionIndex: CEnumTransformable {
     
     typealias CEnumType = css_position_t
-
+    
     static func defaultValue() -> Directive.PositionIndex {
         return .Left
     }
@@ -324,6 +343,11 @@ public typealias Inset = (left: Float, top: Float, right: Float, bottom: Float, 
 public typealias Position = (left: Float, top: Float, right: Float, bottom: Float)
 
 public let Undefined = Float(CSS_NAN())
+
+public struct Flex {
+    public static let Max: Float = 0.99
+    public static let Min: Float = 0.01
+}
 
 //MARK: Layout
 public class Layout {
@@ -559,7 +583,7 @@ public class Node {
         target.get_child = getChildFunction
         target.is_dirty = isDirtyFunction
         target.context = UnsafeMutablePointer(Unmanaged.passUnretained(self).toOpaque())
-
+        
         self.reset()
     }
     
@@ -617,7 +641,7 @@ public class Node {
         resetLayout()
         layoutNode(pointer, maxWidth, maxHeight, parentDirection.toCEnum())
     }
-
+    
 }
 
 //MARK: Operators
