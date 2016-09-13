@@ -37,13 +37,14 @@ extension FlexboxView where Self: UIView {
 
   /// Configure the view and its flexbox style.
   ///- Note: The configuration closure is stored away and called again in the render function
-  public func configure(_ closure: @escaping ((Self) -> Void), children: [UIView]? = nil) -> Self {
+  @discardableResult public func define(children: [UIView]? = nil,
+                                        configuration: @escaping ((Self) -> Void)) -> Self {
 
     //runs the configuration closure and stores it away
-    closure(self)
+    configuration(self)
     self.internalStore.configureClosure = { [weak self] in
       if let _self = self {
-        closure(_self)
+        configuration(_self)
       }
     }
 

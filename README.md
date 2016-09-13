@@ -13,57 +13,50 @@ This layout and style is expressed in code in the following declarative fashion:
 
 
 ```swift
- 
-let view = UIView().configure({
-    $0.backgroundColor = UIColor.whiteColor()
-    $0.style.justifyContent = .Center
-    $0.style.alignSelf = .Stretch
-    $0.style.flexDirection = .Row
-    
-    }, children: [
-        
-        UIView().configure({
-            $0.backgroundColor = UIColor.blueColor()
-            $0.layer.cornerRadius = 27.0
-            $0.style.dimensions = (54, 54)
-            $0.style.margin = defaultMargin
-            $0.style.alignSelf = .Center
-            $0.style.justifyContent = .FlexStart
-        }),
-        
-        UIView().configure({
-            $0.backgroundColor = UIColor.grayColor()
-            $0.style.minDimensions = (100, 54)
-            $0.style.alignSelf = .Center
-            $0.style.flex = 0.8
-            }, children: [
-            
-                UILabel().configure({
-                    $0.text = "TITLE"
-                    $0.style.alignSelf = .FlexStart
-                    $0.style.margin = (0.0, 4.0, 0.0, 0.0, 8.0, 0.0)
-                }),
-                
-                UILabel().configure({
-                    $0.text = "SUBTITLE"
-                    $0.style.alignSelf = .FlexStart
-                    $0.style.margin = (0.0, 6.0, 0.0, 0.0, 8.0, 0.0)
-                })
-                
-            ]),
-        
-        UILabel().configure({
-            $0.backgroundColor = UIColor.redColor()
-            $0.text = "88:88"
-            $0.textColor = UIColor.a
-            $0.textAlignment = .Center
-            $0.style.minDimensions = (54, 54)
-            $0.style.alignSelf = .Center
-            $0.style.flex = 0.2
-            $0.style.margin = defaultMargin
-        })
-    ])
-})
+
+let view = UIView().define(children: [
+  UIView().define { view in
+    view.backgroundColor = UIColor.blue
+    view.layer.cornerRadius = 24.0
+    view.style.dimensions = (48, 48)
+    view.style.margin = defaultMargin
+    view.style.alignSelf = .center
+    view.style.justifyContent = .flexStart
+  },
+  UIView().define(children: [
+    UILabel().define { view in
+      view.text = "TITLE"
+      view.textAlignment = .center
+      view.font = ...
+      view.style.alignSelf = .flexStart
+    },
+    UILabel().define { view in
+      view.text = "SUBTITLE"
+      view.textAlignment = .left
+      view.font = ...
+      view.style.alignSelf = .flexStart
+    }
+  ]) { view in
+    view.backgroundColor = grayColor()
+    view.style.alignSelf = .center
+    view.style.flex = 0.8
+  },
+  UILabel().define { view in
+    view.backgroundColor = UIColor.red
+    view.text = "88:88"
+    view.textAlignment = .center
+    view.style.minDimensions = (64, 54)
+    view.style.alignSelf = .flexEnd
+    view.style.flex = 0.2
+    view.style.margin = defaultMargin
+  }
+]) { view in
+  view.backgroundColor = UIColor.white
+  view.style.justifyContent = .center
+  view.style.alignSelf = .stretch
+  view.style.margin = defaultMargin
+  view.style.flexDirection = .row
+}
 
 view.render()
 
