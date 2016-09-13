@@ -266,6 +266,7 @@
 					};
 					16C073781C889D09005EB8DD = {
 						CreatedOnToolsVersion = 7.2.1;
+						LastSwiftMigration = 0800;
 					};
 				};
 			};
@@ -557,6 +558,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -575,6 +577,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.s.FlexboxLayout;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -588,6 +591,7 @@
 				1614991D1CEC8CDD00021604 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		168E96501C89AF6B00AEEC7F /* Build configuration list for PBXNativeTarget "Demo" */ = {
 			isa = XCConfigurationList;
