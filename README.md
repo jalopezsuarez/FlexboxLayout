@@ -27,20 +27,14 @@ let view =  UIView().define(children: [
       },
       UIView().define(children: [
         UILabel().define { view in
-          view.text = "Lorem Ipsum"
-          view.textAlignment = .left
-          view.font = UIFont.systemFont(ofSize: 16, weight: UIFontWeightBold)
+          view.text = "TITLE"
           view.useFlexbox = true
           view.layout_alignSelf = .flexStart
         },
         UILabel().define { view in
-          view.text = "--"
-          view.textAlignment = .left
-          view.font = UIFont.systemFont(ofSize: 12, weight: UIFontWeightLight)
-          view.numberOfLines = 0
+          view.text = "SUBTITLE"
           view.useFlexbox = true
           view.layout_alignSelf = .flexStart
-          view.layout_maxHeight = 96
         }
       ]) { view in
         view.backgroundColor = UIColor.a
