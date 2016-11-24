@@ -76,33 +76,4 @@ func randomInt(_ min: Int, max:Int) -> Int {
   return min + Int(arc4random_uniform(UInt32(max - min + 1)))
 }
 
-public struct DeviceScreen {
 
-  public static let HorizontalSizeClass: (Void) -> (UIUserInterfaceSizeClass) = {
-    return UIScreen.main.traitCollection.horizontalSizeClass
-  }
-
-  public static let VerticalSizeClass: (Void) -> (UIUserInterfaceSizeClass) = {
-    return UIScreen.main.traitCollection.verticalSizeClass
-  }
-
-  public static let LayoutDirection: (Void) -> (UIUserInterfaceLayoutDirection) = {
-    return UIApplication.shared.userInterfaceLayoutDirection
-  }
-
-  public static let Idiom: (Void) -> (UIUserInterfaceIdiom) = {
-    return UIDevice.current.userInterfaceIdiom
-  }
-
-  public static let ScreenSize: (Void) -> FlexboxLayout.Dimension = {
-    let screen = UIScreen.main
-    let size = screen.coordinateSpace.convert(screen.bounds, to: screen.fixedCoordinateSpace).size
-    return (Float(size.width), Float(size.height))
-  }
-
-  public static let ViewSize: (UIView) -> FlexboxLayout.Dimension = {
-    let size = $0.bounds.size
-    return (Float(size.width), Float(size.height))
-  }
-
-}

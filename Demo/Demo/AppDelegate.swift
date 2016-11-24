@@ -1,9 +1,9 @@
 //
 //  AppDelegate.swift
-//  FlexboxDemo
+//  Demo
 //
-//  Created by Alex Usbergo on 13/09/16.
-//  Copyright © 2016 Alex Usbergo. All rights reserved.
+//  Created by Alex Usbergo on 11/24/16.
+//  Copyright © 2016 alexusbergo. All rights reserved.
 //
 
 import UIKit

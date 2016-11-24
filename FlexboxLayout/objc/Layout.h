@@ -1,14 +1,11 @@
-//
-//  FlexboxLayout.h
-//  FlexboxLayout
-//
-//  Created by Alex Usbergo on 03/03/16.
-//  Copyright © 2016 Alex Usbergo. All rights reserved.
-//
-
-
-#import <UIKit/UIKit.h>
-#import <Foundation/Foundation.h>
+/**
+ * Copyright (c) 2014-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the root directory of this source tree. An additional grant
+ * of patent rights can be found in the PATENTS file in the same directory.
+ */
 
 #pragma once
 
@@ -162,10 +159,10 @@ WIN_EXPORT float CSSNaN();
 
 typedef struct CSSNode *CSSNodeRef;
 typedef CSSSize (*CSSMeasureFunc)(CSSNodeRef node,
-float width,
-CSSMeasureMode widthMode,
-float height,
-CSSMeasureMode heightMode);
+                                  float width,
+                                  CSSMeasureMode widthMode,
+                                  float height,
+                                  CSSMeasureMode heightMode);
 typedef void (*CSSPrintFunc)(CSSNodeRef node);
 typedef int (*CSSLogger)(CSSLogLevel level, const char *format, va_list args);
 
@@ -216,21 +213,21 @@ WIN_EXPORT bool CSSNodeCanUseCachedMeasurement(const CSSMeasureMode widthMode,
                                                const float marginColumn);
 
 #define CSS_NODE_PROPERTY(type, name, paramName)                           \
-WIN_EXPORT void CSSNodeSet##name(const CSSNodeRef node, type paramName); \
-WIN_EXPORT type CSSNodeGet##name(const CSSNodeRef node);
+  WIN_EXPORT void CSSNodeSet##name(const CSSNodeRef node, type paramName); \
+  WIN_EXPORT type CSSNodeGet##name(const CSSNodeRef node);
 
 #define CSS_NODE_STYLE_PROPERTY(type, name, paramName)                                \
-WIN_EXPORT void CSSNodeStyleSet##name(const CSSNodeRef node, const type paramName); \
-WIN_EXPORT type CSSNodeStyleGet##name(const CSSNodeRef node);
+  WIN_EXPORT void CSSNodeStyleSet##name(const CSSNodeRef node, const type paramName); \
+  WIN_EXPORT type CSSNodeStyleGet##name(const CSSNodeRef node);
 
 #define CSS_NODE_STYLE_EDGE_PROPERTY(type, name, paramName)    \
-WIN_EXPORT void CSSNodeStyleSet##name(const CSSNodeRef node, \
-const CSSEdge edge,    \
-const type paramName); \
-WIN_EXPORT type CSSNodeStyleGet##name(const CSSNodeRef node, const CSSEdge edge);
+  WIN_EXPORT void CSSNodeStyleSet##name(const CSSNodeRef node, \
+                                        const CSSEdge edge,    \
+                                        const type paramName); \
+  WIN_EXPORT type CSSNodeStyleGet##name(const CSSNodeRef node, const CSSEdge edge);
 
 #define CSS_NODE_LAYOUT_PROPERTY(type, name) \
-WIN_EXPORT type CSSNodeLayoutGet##name(const CSSNodeRef node);
+  WIN_EXPORT type CSSNodeLayoutGet##name(const CSSNodeRef node);
 
 CSS_NODE_PROPERTY(void *, Context, context);
 CSS_NODE_PROPERTY(CSSMeasureFunc, MeasureFunc, measureFunc);
@@ -287,48 +284,3 @@ CSSNodeRef CSSNodeListDelete(const CSSNodeListRef list, const CSSNodeRef node);
 CSSNodeRef CSSNodeListGet(const CSSNodeListRef list, const uint32_t index);
 
 CSS_EXTERN_C_END
-
-
-@interface UIView (CSSLayout)
-
-@property (nonatomic, readwrite, assign, setter=css_setUsesFlexbox:) BOOL css_usesFlexbox;
-
-@property (nonatomic, readwrite, assign) CSSDirection css_direction;
-@property (nonatomic, readwrite, assign) CSSFlexDirection css_flexDirection;
-@property (nonatomic, readwrite, assign) CSSJustify css_justifyContent;
-@property (nonatomic, readwrite, assign) CSSAlign css_alignContent;
-@property (nonatomic, readwrite, assign) CSSAlign css_alignItems;
-@property (nonatomic, readwrite, assign) CSSAlign css_alignSelf;
-@property (nonatomic, readwrite, assign) CSSPositionType css_positionType;
-@property (nonatomic, readwrite, assign) CSSWrapType css_flexWrap;
-@property (nonatomic, readwrite, assign) CGFloat css_flexGrow;
-@property (nonatomic, readwrite, assign) CGFloat css_flexShrink;
-@property (nonatomic, readwrite, assign) CGFloat css_flexBasis;
-@property (nonatomic, readwrite, assign) CGFloat css_width;
-@property (nonatomic, readwrite, assign) CGFloat css_height;
-@property (nonatomic, readwrite, assign) CGFloat css_minWidth;
-@property (nonatomic, readwrite, assign) CGFloat css_minHeight;
-@property (nonatomic, readwrite, assign) CGFloat css_maxWidth;
-@property (nonatomic, readwrite, assign) CGFloat css_maxHeight;
-
-- (void)css_setPosition:(CGFloat)position forEdge:(CSSEdge)edge;
-- (CGFloat)css_positionForEdge:(CSSEdge)edge;
-- (void)css_setMargin:(CGFloat)margin forEdge:(CSSEdge)edge;
-- (CGFloat)css_marginForEdge:(CSSEdge)edge;
-- (void)css_setPadding:(CGFloat)padding forEdge:(CSSEdge)edge;
-- (CGFloat)css_paddingForEdge:(CSSEdge)edge;
-
-- (CSSDirection)css_resolvedDirection;
-- (void)css_applyLayout;
-- (CGSize)css_sizeThatFits:(CGSize)constrainedSize;
-
-@end
-
-//! Project version number for FlexboxLayout.
-FOUNDATION_EXPORT double FlexboxLayoutVersionNumber;
-
-//! Project version string for FlexboxLayout.
-FOUNDATION_EXPORT const unsigned char FlexboxLayoutVersionString[];
-
-// In this header, you should import all the public headers of your framework using statements like #import <FlexboxLayout/PublicHeader.h>
-

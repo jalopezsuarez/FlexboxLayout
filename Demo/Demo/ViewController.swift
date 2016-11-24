@@ -21,61 +21,66 @@ class ViewController: UIViewController {
 
   func prepareViewHierarchy() {
 
-    let defaultMargin: Inset = (8.0, 8.0, 8.0, 8.0, 8.0, 8.0)
     self.treeView?.removeFromSuperview()
 
     self.treeView = UIView().define(children: [
       UIView().define { view in
         view.backgroundColor = UIColor.d
         view.layer.cornerRadius = 24.0
-        view.style.dimensions = (48, 48)
-        view.style.margin = defaultMargin
-        view.style.alignSelf = .center
-        view.style.justifyContent = .flexStart
+        view.useFlexbox = true
+        view.layout_width = 48
+        view.layout_height = 48
+        view.layout_marginAll = 16
+        view.layout_alignSelf = .center
+        view.layout_justifyContent = .flexStart
       },
       UIView().define(children: [
         UILabel().define { view in
           view.text = "Lorem Ipsum"
-          view.textAlignment = .center
+          view.textAlignment = .left
           view.font = UIFont.systemFont(ofSize: 16, weight: UIFontWeightBold)
-          view.style.alignSelf = .flexStart
-          view.style.margin = (0, 4.0, 0, 0, 8.0, 0)
+          view.useFlexbox = true
+          view.layout_alignSelf = .flexStart
         },
         UILabel().define { view in
           view.text = "--"
           view.textAlignment = .left
           view.font = UIFont.systemFont(ofSize: 12, weight: UIFontWeightLight)
           view.numberOfLines = 0
-          view.style.alignSelf = .flexStart
-          view.style.margin = (120, 6.0, 0, 0, 8.0, 0)
-          view.style.maxDimensions.height = 96
-          view.style.margin = defaultMargin
+          view.useFlexbox = true
+          view.layout_alignSelf = .flexStart
+          view.layout_maxHeight = 96
         }
       ]) { view in
         view.backgroundColor = UIColor.a
-        view.style.alignSelf = .center
-        view.style.flex = 0.8
+        view.useFlexbox = true
+        view.layout_alignSelf = .center
+        view.layout_flexGrow = 0.8
+        view.layout_paddingAll = 8
       },
       UILabel().define { view in
-        view.backgroundColor = UIColor.f
         view.text = "88:88"
-        view.textColor = UIColor.a
+        view.textColor = UIColor.f
         view.textAlignment = .center
         view.font = UIFont.systemFont(ofSize: 12, weight: UIFontWeightLight)
-        view.style.minDimensions = (64, 54)
-        view.style.alignSelf = .flexEnd
-        view.style.flex = 0.2
-        view.style.margin = defaultMargin
+        view.useFlexbox = true
+        view.layout_minWidth = 64
+        view.layout_alignSelf = .center
+        view.layout_flexShrink = 0.2
+        view.layout_paddingAll = 8
+        view.layout_marginAll = 2
+
       }
     ]) { view in
       view.backgroundColor = UIColor.white
       view.layer.borderColor = UIColor.b.cgColor
       view.layer.borderWidth = 2.0
-      view.style.justifyContent = .center
-      view.style.alignSelf = .stretch
-      view.style.margin = defaultMargin
-      view.style.flexDirection = .row
-      view.style.maxDimensions.width = ~(self.view.bounds.width - 40)
+      view.useFlexbox = true
+      view.layout_justifyContent = .center
+      view.layout_alignSelf = .stretch
+      view.layout_marginAll = 8
+      view.layout_flexDirection = .row
+      view.layout_maxWidth = self.view.bounds.width - 40
     }
 
     self.view.addSubview(self.treeView!)
@@ -94,8 +99,8 @@ class ViewController: UIViewController {
     self.prepareViewHierarchy()
     self.render()
   }
-
-
+  
+  
 }
 
 

@@ -9,9 +9,7 @@
 /* Begin PBXBuildFile section */
 		1614991E1CEC8CE500021604 /* FlexboxLayout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16C073791C889D09005EB8DD /* FlexboxLayout.framework */; };
 		1614991F1CEC8CE500021604 /* FlexboxLayout.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 16C073791C889D09005EB8DD /* FlexboxLayout.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		1621489F1CAC1D890029CF93 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1621489E1CAC1D890029CF93 /* Extensions.swift */; };
 		165B2BEA1C89E7B8009F81AB /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165B2BE91C89E7B8009F81AB /* Extensions.swift */; };
-		166426351CA977EC00371BB0 /* Geometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166426341CA977EC00371BB0 /* Geometry.swift */; };
 		167E861D1CAD3A5B0020A84B /* FlexboxLayout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16C073791C889D09005EB8DD /* FlexboxLayout.framework */; };
 		167E861E1CAD3A5B0020A84B /* FlexboxLayout.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 16C073791C889D09005EB8DD /* FlexboxLayout.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		168E96441C89AF6B00AEEC7F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168E96431C89AF6B00AEEC7F /* AppDelegate.swift */; };
@@ -21,10 +19,13 @@
 		168E964E1C89AF6B00AEEC7F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 168E964C1C89AF6B00AEEC7F /* LaunchScreen.storyboard */; };
 		168E96571C89B32F00AEEC7F /* Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C073881C889DB9005EB8DD /* Layout.swift */; };
 		168E96581C89B32F00AEEC7F /* ViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168E96531C89AF8800AEEC7F /* ViewType.swift */; };
+		169A60F21DE70C8B00B85107 /* Layout.c in Sources */ = {isa = PBXBuildFile; fileRef = 169A60EE1DE70C8B00B85107 /* Layout.c */; };
+		169A60F31DE70C8B00B85107 /* Layout.h in Headers */ = {isa = PBXBuildFile; fileRef = 169A60EF1DE70C8B00B85107 /* Layout.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		169A60F41DE70C8B00B85107 /* UIView+Layout.h in Headers */ = {isa = PBXBuildFile; fileRef = 169A60F01DE70C8B00B85107 /* UIView+Layout.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		169A60F51DE70C8B00B85107 /* UIView+Layout.m in Sources */ = {isa = PBXBuildFile; fileRef = 169A60F11DE70C8B00B85107 /* UIView+Layout.m */; };
+		169A60F71DE70DF400B85107 /* Reset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169A60F61DE70DF400B85107 /* Reset.swift */; };
 		16A1D4E21C930E3A001AEDD7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 16A1D4E11C930E3A001AEDD7 /* main.m */; };
 		16C0737D1C889D09005EB8DD /* FlexboxLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = 16C0737C1C889D09005EB8DD /* FlexboxLayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		16C073861C889D15005EB8DD /* Layout.c in Sources */ = {isa = PBXBuildFile; fileRef = 16C073841C889D15005EB8DD /* Layout.c */; };
-		16C073871C889D15005EB8DD /* Layout.h in Headers */ = {isa = PBXBuildFile; fileRef = 16C073851C889D15005EB8DD /* Layout.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,9 +72,7 @@
 
 /* Begin PBXFileReference section */
 		161499111CEC8CDD00021604 /* DemoMacOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DemoMacOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		1621489E1CAC1D890029CF93 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		165B2BE91C89E7B8009F81AB /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		166426341CA977EC00371BB0 /* Geometry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Geometry.swift; sourceTree = "<group>"; };
 		168E96411C89AF6B00AEEC7F /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		168E96431C89AF6B00AEEC7F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		168E96451C89AF6B00AEEC7F /* DemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoViewController.swift; sourceTree = "<group>"; };
@@ -82,13 +81,16 @@
 		168E964D1C89AF6B00AEEC7F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		168E964F1C89AF6B00AEEC7F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		168E96531C89AF8800AEEC7F /* ViewType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewType.swift; sourceTree = "<group>"; };
+		169A60EE1DE70C8B00B85107 /* Layout.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = Layout.c; path = objc/Layout.c; sourceTree = "<group>"; };
+		169A60EF1DE70C8B00B85107 /* Layout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Layout.h; path = objc/Layout.h; sourceTree = "<group>"; };
+		169A60F01DE70C8B00B85107 /* UIView+Layout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+Layout.h"; path = "objc/UIView+Layout.h"; sourceTree = "<group>"; };
+		169A60F11DE70C8B00B85107 /* UIView+Layout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+Layout.m"; path = "objc/UIView+Layout.m"; sourceTree = "<group>"; };
+		169A60F61DE70DF400B85107 /* Reset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reset.swift; sourceTree = "<group>"; };
 		16A1D4E01C930E3A001AEDD7 /* Demo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Demo-Bridging-Header.h"; sourceTree = "<group>"; };
 		16A1D4E11C930E3A001AEDD7 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		16C073791C889D09005EB8DD /* FlexboxLayout.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FlexboxLayout.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		16C0737C1C889D09005EB8DD /* FlexboxLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlexboxLayout.h; sourceTree = "<group>"; };
 		16C0737E1C889D0A005EB8DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		16C073841C889D15005EB8DD /* Layout.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Layout.c; sourceTree = "<group>"; };
-		16C073851C889D15005EB8DD /* Layout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Layout.h; sourceTree = "<group>"; };
 		16C073881C889DB9005EB8DD /* Layout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Layout.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -134,6 +136,17 @@
 			path = Demo;
 			sourceTree = "<group>";
 		};
+		169A60ED1DE70C8300B85107 /* objc */ = {
+			isa = PBXGroup;
+			children = (
+				169A60EF1DE70C8B00B85107 /* Layout.h */,
+				169A60EE1DE70C8B00B85107 /* Layout.c */,
+				169A60F01DE70C8B00B85107 /* UIView+Layout.h */,
+				169A60F11DE70C8B00B85107 /* UIView+Layout.m */,
+			);
+			name = objc;
+			sourceTree = "<group>";
+		};
 		16C0736F1C889D09005EB8DD = {
 			isa = PBXGroup;
 			children = (
@@ -156,14 +169,12 @@
 		16C0737B1C889D09005EB8DD /* FlexboxLayout */ = {
 			isa = PBXGroup;
 			children = (
+				169A60ED1DE70C8300B85107 /* objc */,
 				16C0737C1C889D09005EB8DD /* FlexboxLayout.h */,
 				16C0737E1C889D0A005EB8DD /* Info.plist */,
-				16C073841C889D15005EB8DD /* Layout.c */,
-				16C073851C889D15005EB8DD /* Layout.h */,
 				16C073881C889DB9005EB8DD /* Layout.swift */,
+				169A60F61DE70DF400B85107 /* Reset.swift */,
 				168E96531C89AF8800AEEC7F /* ViewType.swift */,
-				166426341CA977EC00371BB0 /* Geometry.swift */,
-				1621489E1CAC1D890029CF93 /* Extensions.swift */,
 			);
 			path = FlexboxLayout;
 			sourceTree = "<group>";
@@ -184,8 +195,9 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				16C073871C889D15005EB8DD /* Layout.h in Headers */,
+				169A60F31DE70C8B00B85107 /* Layout.h in Headers */,
 				16C0737D1C889D09005EB8DD /* FlexboxLayout.h in Headers */,
+				169A60F41DE70C8B00B85107 /* UIView+Layout.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,6 +275,7 @@
 					};
 					168E96401C89AF6B00AEEC7F = {
 						CreatedOnToolsVersion = 7.2.1;
+						LastSwiftMigration = 0800;
 					};
 					16C073781C889D09005EB8DD = {
 						CreatedOnToolsVersion = 7.2.1;
@@ -340,11 +353,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				16C073861C889D15005EB8DD /* Layout.c in Sources */,
-				1621489F1CAC1D890029CF93 /* Extensions.swift in Sources */,
+				169A60F21DE70C8B00B85107 /* Layout.c in Sources */,
+				169A60F51DE70C8B00B85107 /* UIView+Layout.m in Sources */,
 				168E96571C89B32F00AEEC7F /* Layout.swift in Sources */,
 				168E96581C89B32F00AEEC7F /* ViewType.swift in Sources */,
-				166426351CA977EC00371BB0 /* Geometry.swift in Sources */,
+				169A60F71DE70DF400B85107 /* Reset.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -431,6 +444,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Demo/Demo-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -446,6 +460,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.s.Demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Demo/Demo-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -546,6 +561,7 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "-";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -567,6 +583,7 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "-";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
