@@ -121,10 +121,27 @@
             fatalError("init(coder:) has not been implemented")
         }
         
+        // - Fix: Separator lines disappear between cells when reuse cells
+        let CSSeparatorViewTag = 43298
+        
         internal func renderComponent(_ size: CGSize? = nil) {
             let s = size ?? self.superview?.bounds.size ?? CGSize.undefined
             self.component.didUpdateState()
             self.component.render(s)
+            
+            // - Fix: Separator lines disappear between cells when reuse cells
+            if self.viewWithTag(CSSeparatorViewTag) == nil {
+                subviews.forEach { (view) in
+                    if type(of: view).description().hasSuffix("SeparatorView") {
+                        view.removeFromSuperview()
+                        let separator = UIView(frame: view.frame)
+                        separator.backgroundColor = view.backgroundColor
+                        separator.autoresizingMask = [.flexibleWidth, .flexibleTopMargin]
+                        separator.tag = CSSeparatorViewTag
+                        addSubview(separator)
+                    }
+                }
+            }
         }
     }
     
