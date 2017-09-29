@@ -1,7 +1,7 @@
 # FlexboxLayout
-[![Swift](https://img.shields.io/badge/swift-3-orange.svg?style=flat)](#)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
-[![Platform](https://img.shields.io/badge/platform-iOS | macOS -lightgrey.svg?style=flat)](#)
+[![Build](https://img.shields.io/badge/build-passing-green.svg?style=flat)](#)
+[![Platform](https://img.shields.io/badge/platform-ios | osx -lightgrey.svg?style=flat)](#)
 [![Build](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://opensource.org/licenses/MIT)
 
 Port of Facebook's [css-layout](facebook css layout) to Swift + *UIView* extension.
@@ -13,67 +13,65 @@ This layout and style is expressed in code in the following declarative fashion:
 
 
 ```swift
-
-let view =  UIView().define(children: [
-      UIView().define { view in
-        view.backgroundColor = UIColor.d
-        view.layer.cornerRadius = 24.0
-        view.useFlexbox = true
-        view.layout_width = 48
-        view.layout_height = 48
-        view.layout_marginAll = 16
-        view.layout_alignSelf = .center
-        view.layout_justifyContent = .flexStart
-      },
-      UIView().define(children: [
-        UILabel().define { view in
-          view.text = "TITLE"
-          view.useFlexbox = true
-          view.layout_alignSelf = .flexStart
-        },
-        UILabel().define { view in
-          view.text = "SUBTITLE"
-          view.useFlexbox = true
-          view.layout_alignSelf = .flexStart
-        }
-      ]) { view in
-        view.backgroundColor = UIColor.a
-        view.useFlexbox = true
-        view.layout_alignSelf = .center
-        view.layout_flexGrow = 0.8
-        view.layout_paddingAll = 8
-      },
-      UILabel().define { view in
-        view.text = "88:88"
-        view.textColor = UIColor.f
-        view.textAlignment = .center
-        view.font = UIFont.systemFont(ofSize: 12, weight: UIFontWeightLight)
-        view.useFlexbox = true
-        view.layout_minWidth = 64
-        view.layout_alignSelf = .center
-        view.layout_flexShrink = 0.2
-        view.layout_paddingAll = 8
-        view.layout_marginAll = 2
-
-      }
-    ]) { view in
-      view.backgroundColor = UIColor.white
-      view.layer.borderColor = UIColor.b.cgColor
-      view.layer.borderWidth = 2.0
-      view.useFlexbox = true
-      view.layout_justifyContent = .center
-      view.layout_alignSelf = .stretch
-      view.layout_marginAll = 8
-      view.layout_flexDirection = .row
-      view.layout_maxWidth = self.view.bounds.width - 40
-    }
+ 
+let view = UIView().configure({
+    $0.backgroundColor = UIColor.whiteColor()
+    $0.style.justifyContent = .Center
+    $0.style.alignSelf = .Stretch
+    $0.style.flexDirection = .Row
+    
+    }, children: [
+        
+        UIView().configure({
+            $0.backgroundColor = UIColor.blueColor()
+            $0.layer.cornerRadius = 27.0
+            $0.style.dimensions = (54, 54)
+            $0.style.margin = defaultMargin
+            $0.style.alignSelf = .Center
+            $0.style.justifyContent = .FlexStart
+        }),
+        
+        UIView().configure({
+            $0.backgroundColor = UIColor.grayColor()
+            $0.style.minDimensions = (100, 54)
+            $0.style.alignSelf = .Center
+            $0.style.flex = 0.8
+            }, children: [
+            
+                UILabel().configure({
+                    $0.text = "TITLE"
+                    $0.style.alignSelf = .FlexStart
+                    $0.style.margin = (0.0, 4.0, 0.0, 0.0, 8.0, 0.0)
+                }),
+                
+                UILabel().configure({
+                    $0.text = "SUBTITLE"
+                    $0.style.alignSelf = .FlexStart
+                    $0.style.margin = (0.0, 6.0, 0.0, 0.0, 8.0, 0.0)
+                })
+                
+            ]),
+        
+        UILabel().configure({
+            $0.backgroundColor = UIColor.redColor()
+            $0.text = "88:88"
+            $0.textColor = UIColor.a
+            $0.textAlignment = .Center
+            $0.style.minDimensions = (54, 54)
+            $0.style.alignSelf = .Center
+            $0.style.flex = 0.2
+            $0.style.margin = defaultMargin
+        })
+    ])
+})
 
 view.render()
 
 ```
 
-The  `define` function stores the configuration closure for each view and these are recursively re-applied whenever the `render` function is called on the root view.
+The  `configure` function stores the configuration closure for each view and these are recursively re-applied whenever the `render` function is called on the root view.
 
+This allows you to have a React-inspired design of your view logic.
 
 
  
